@@ -27,9 +27,8 @@ namespace MinesweeperTests {
         }
 
         [TestMethod]
-        [DeploymentItem(@"myfile.txt", "out")]
         public void MapFromFileIsValid() {
-            Map m = Map.LoadMapFromFile(@"targetFolder\source");
+            Map m = Map.LoadMapFromFile(@"Resources\map1.txt");
         }
 
         [TestMethod]
