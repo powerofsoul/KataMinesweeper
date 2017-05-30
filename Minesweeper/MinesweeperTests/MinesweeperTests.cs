@@ -6,7 +6,7 @@ namespace MinesweeperTests {
     [TestClass]
     public class UnitTest1 {
         [TestMethod]
-        [ExpectedException (typeof(ArgumentException),"Invalid input")]
+        [ExpectedException (typeof(ArgumentException),"Invalid size")]
         public void SizeOfGridIsIncorrect() {
             string input = "***";
             int size = 10;
@@ -14,9 +14,16 @@ namespace MinesweeperTests {
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException),"Invalid input")]
+        [ExpectedException(typeof(ArgumentException),"Invalid map")]
         public void InvalidCharactersInInput() {
             string input = "*.*.*#...";
+            int size = 3;
+            Map m = new Map(input,3);
+        }
+
+        [TestMethod]
+        public void MapIsValid() {
+            string input = ".*..*.***";
             int size = 3;
             Map m = new Map(input,3);
         }
