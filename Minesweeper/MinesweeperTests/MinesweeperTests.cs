@@ -47,7 +47,7 @@ namespace MinesweeperTests {
         [TestMethod]
         public void FilesHasTwoMaps() {
             var maps = Map.LoadMapFromFile(@"Resources\map4.txt");
-            Assert.Equals(maps.Count(),2);
+            Assert.Equals(maps.Count,2);
         }
 
         [TestMethod]
