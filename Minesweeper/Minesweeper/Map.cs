@@ -26,10 +26,18 @@ namespace Minesweeper {
             List<Map> maps = new List<Map>();
             int i = 0;
             while(i < fileContent.Length) {
+                if(string.IsNullOrWhiteSpace(fileContent[i])) {
+                    i++;
+                    continue;
+                }
                 Regex r = new Regex(@"(\d+)\s+");
                 var matches = r.Match(fileContent[i]);
-
+                
                 var height = Convert.ToInt32(matches.Groups[1].Value);
+                if(height == 0) {
+                    i++;
+                    continue;
+                }
                 maps.Add(ParseMap(fileContent.Skip(i).Take(height+1).ToArray()));
                 i = i + height + 1;
             }
