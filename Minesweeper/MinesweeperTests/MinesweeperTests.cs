@@ -24,5 +24,11 @@ namespace MinesweeperTests {
             string input = ".*..*.***";
             Map m = new Map(input,3,3);
         }
+
+        [TestMethod]
+        [DeploymentItem(@"myfile.txt", "out")]
+        public void MapFromFileIsValid() {
+            Map m = Map.LoadMapFromFile(@"targetFolder\source");
+        }
     }
 }
