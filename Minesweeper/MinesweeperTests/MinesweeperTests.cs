@@ -44,6 +44,12 @@ namespace MinesweeperTests {
         }
 
         [TestMethod]
+        public void FilesHasTwoMaps() {
+            var maps = Map.LoadMapFromFile(@"Resources\map4.txt");
+            Assert.Equals(maps.Count(),2);
+        }
+
+        [TestMethod]
         public void ParseMapReturnNoExceptions() {
             Map.ParseMap(new string[] { "2 2","..",".." });
         }
