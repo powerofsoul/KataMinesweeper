@@ -4,12 +4,12 @@ namespace Minesweeper {
 
     public class Map {
 
-        public Map(string map,int size) {
-            ValidMap(map,size);
+        public Map(string map,int width,int height) {
+            ValidMap(map,width,height);
         }
 
-        private bool ValidMap(string map, int size) {
-            if(Math.Pow(size,2) != map.Length)
+        private bool ValidMap(string map, int width,int height) {
+            if(width * height != map.Length)
                 throw new ArgumentException("Invalid size");
             foreach(char c in map) {
                 if(c != '.' && c != '*')
