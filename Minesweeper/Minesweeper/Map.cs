@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -21,8 +19,9 @@ namespace Minesweeper {
             }
             return true;
         }
+
         public static Map LoadMapFromFile(string path) {
-            var fileContent =  System.IO.File.ReadLines(path).ToArray();
+            var fileContent = System.IO.File.ReadLines(path).ToArray();
 
             return Map.ParseMap(fileContent);
         }
@@ -31,7 +30,7 @@ namespace Minesweeper {
             Regex r = new Regex(@"(\d+)\s+(\d+)");
             var matches = r.Match(lines[0]);
 
-            var width = Convert.ToInt32( matches.Groups[1].Value);
+            var width = Convert.ToInt32(matches.Groups[1].Value);
             var height = Convert.ToInt32(matches.Groups[2].Value);
 
             var mapLayout = string.Join("",lines.ToList().Skip(1).ToArray());

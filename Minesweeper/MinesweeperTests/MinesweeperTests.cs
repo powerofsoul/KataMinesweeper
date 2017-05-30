@@ -1,13 +1,14 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Minesweeper;
-using System.Collections.Generic;
+using System;
 
 namespace MinesweeperTests {
+
     [TestClass]
     public class UnitTest1 {
+
         [TestMethod]
-        [ExpectedException (typeof(ArgumentException),"Invalid size")]
+        [ExpectedException(typeof(ArgumentException),"Invalid size")]
         public void SizeOfGridIsIncorrect() {
             string input = "***";
             Map m = new Map(input,5,5);
