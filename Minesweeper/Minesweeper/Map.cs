@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Minesweeper {
+
     public class Map {
-        public Map(string input) {
-             
+
+        public Map(string map,int size) {
+            if(map.Length != size * size) {
+                throw new ArgumentException("Invalid input");
+            }
         }
     }
 }
