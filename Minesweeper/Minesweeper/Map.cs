@@ -21,6 +21,11 @@ namespace Minesweeper {
             }
             return true;
         }
+        public static Map LoadMapFromFile(string path) {
+            var fileContent =  System.IO.File.ReadLines(path).ToArray();
+
+            return Map.ParseMap(fileContent);
+        }
 
         public static Map ParseMap(string[] lines) {
             Regex r = new Regex(@"(\d+)\s+(\d+)");
