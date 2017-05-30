@@ -9,23 +9,20 @@ namespace MinesweeperTests {
         [ExpectedException (typeof(ArgumentException),"Invalid size")]
         public void SizeOfGridIsIncorrect() {
             string input = "***";
-            int size = 10;
-            Map m = new Map(input,10);
+            Map m = new Map(input,5,5);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException),"Invalid map")]
         public void InvalidCharactersInInput() {
             string input = "*.*.*#...";
-            int size = 3;
-            Map m = new Map(input,3);
+            Map m = new Map(input,3,3);
         }
 
         [TestMethod]
         public void MapIsValid() {
             string input = ".*..*.***";
-            int size = 3;
-            Map m = new Map(input,3);
+            Map m = new Map(input,3,3);
         }
     }
 }
