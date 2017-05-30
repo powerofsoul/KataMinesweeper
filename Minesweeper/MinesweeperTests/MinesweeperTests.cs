@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-usi
+using Minesweeper;
+
 namespace MinesweeperTests {
     [TestClass]
     public class UnitTest1 {
