@@ -51,6 +51,12 @@ namespace MinesweeperTests {
         }
 
         [TestMethod]
+        public void ZeroMapIsSkipedFromLoadMapFromFile() {
+            var maps = Map.LoadMapFromFile(@"Resources\map5.txt");
+            Assert.AreEqual(maps.Count,1);
+        }
+
+        [TestMethod]
         public void ParseMapReturnNoExceptions() {
             Map.ParseMap(new string[] { "2 2","..",".." });
         }
