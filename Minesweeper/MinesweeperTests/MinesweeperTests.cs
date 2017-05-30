@@ -32,6 +32,18 @@ namespace MinesweeperTests {
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException),"Invalid size")]
+        public void MapFromFileHasInvalidSize() {
+            Map m = Map.LoadMapFromFile(@"Resources\map2.txt");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException),"Invalid map")]
+        public void MapFromFileHasInvalidCharacters() {
+            Map m = Map.LoadMapFromFile(@"Resources\map3.txt");
+        }
+
+        [TestMethod]
         public void ParseMapReturnNoExceptions() {
             Map.ParseMap(new string[] { "2 2","..",".." });
         }
