@@ -9,7 +9,8 @@ namespace MinesweeperTests {
         [ExpectedException (typeof(ArgumentException),"Invalid input")]
         public void SizeOfGridIsIncorrect() {
             string input = "***";
-            Map m = new Map(input);
+            int size = 10;
+            Map m = new Map(input,10);
         }
     }
 }
