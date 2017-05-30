@@ -5,16 +5,15 @@ namespace Minesweeper {
     public class Map {
 
         public Map(string map,int size) {
-            if(map.Length != size * size || !ValidMap(map)) {
-                throw new ArgumentException("Invalid input");
-            }
-            
+            ValidMap(map,size);
         }
 
-        private bool ValidMap(string map) {
+        private bool ValidMap(string map, int size) {
+            if(Math.Pow(size,2) != map.Length)
+                throw new ArgumentException("Invalid size");
             foreach(char c in map) {
                 if(c != '.' && c != '*')
-                    return false;
+                    throw new ArgumentException("Invalid map");
             }
             return true;
         }
