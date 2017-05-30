@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Minesweeper;
+using System.Collections.Generic;
 
 namespace MinesweeperTests {
     [TestClass]
@@ -29,6 +30,11 @@ namespace MinesweeperTests {
         [DeploymentItem(@"myfile.txt", "out")]
         public void MapFromFileIsValid() {
             Map m = Map.LoadMapFromFile(@"targetFolder\source");
+        }
+
+        [TestMethod]
+        public void ParseMapReturnNoExceptions() {
+            Map.ParseMap(new string[] { "2 2","..",".." });
         }
     }
 }
