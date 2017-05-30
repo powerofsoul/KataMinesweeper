@@ -29,7 +29,7 @@ namespace MinesweeperTests {
 
         [TestMethod]
         public void MapFromFileIsValid() {
-            Map m = Map.LoadMapFromFile(@"Resources\map1.txt");
+            var m = Map.LoadMapFromFile(@"Resources\map1.txt");
         }
 
         [TestMethod]
