@@ -90,5 +90,13 @@ namespace MinesweeperTests {
             var map = Map.ParseMap(new string[] { "2 2",".*","**" });
             Assert.AreEqual(".***",map.MapLayout);
         }
+
+        [TestMethod]
+        public void GetFiledReturnCorrentAnswer() {
+            var map = new Map("..*...**.",3,3);
+
+            Assert.AreEqual(".",map.GetField(1,1));
+            Assert.AreEqual("*",map.GetField(0,2));
+        }
     }
 }
