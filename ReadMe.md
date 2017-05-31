@@ -1,1 +1,1 @@
-My attempt on **KataMinesweeper**
+My attempt on [**KataMinesweeper**](http://codingdojo.org/kata/Minesweeper/)
