@@ -61,13 +61,34 @@ namespace MinesweeperTests {
         [TestMethod]
         public void ZeroMapIsSkipedFromLoadMapFromFile() {
             var maps = Map.LoadMapFromFile(@"Resources\map5.txt");
-            Assert.AreEqual(maps.Count,1);
+            Assert.AreEqual(1,maps.Count);
         }
 
         [TestCategory("MapCreation")]
         [TestMethod]
         public void ParseMapReturnNoExceptions() {
             Map.ParseMap(new string[] { "2 2","..",".." });
+        }
+
+        [TestCategory("MapCreation")]
+        [TestMethod]
+        public void MapHaveCorrectWidth() {
+            var map = Map.ParseMap(new string[] { "3 2","...","..." });
+            Assert.AreEqual(3,map.Width);
+        }
+
+        [TestCategory("MapCreation")]
+        [TestMethod]
+        public void MapHaveCorrectHeight() {
+            var map = Map.ParseMap(new string[] { "3 1","..." });
+            Assert.AreEqual(1,map.Height);
+        }
+
+        [TestCategory("MapCreation")]
+        [TestMethod]
+        public void MapHaveCorrectMapLayout() {
+            var map = Map.ParseMap(new string[] { "2 2",".*","**" });
+            Assert.AreEqual(".***",map.MapLayout);
         }
     }
 }
