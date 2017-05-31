@@ -6,9 +6,15 @@ using System.Text.RegularExpressions;
 namespace Minesweeper {
 
     public class Map {
+        public int Width;
+        public int Height;
+        public string MapLayout;
 
-        public Map(string map,int width,int height) {
-            ValidMap(map,width,height);
+        public Map(string mapLayout,int width,int height) {
+            ValidMap(mapLayout,width,height);
+            Width = width;
+            Height = height;
+            MapLayout = mapLayout;
         }
 
         private bool ValidMap(string map,int width,int height) {
