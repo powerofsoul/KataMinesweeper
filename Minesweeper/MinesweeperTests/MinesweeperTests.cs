@@ -98,5 +98,12 @@ namespace MinesweeperTests {
             Assert.AreEqual(".",map.GetField(1,1));
             Assert.AreEqual("*",map.GetField(0,2));
         }
+
+        [TestMethod]
+        [ExpectedException (typeof(ArgumentException),"Invalid position")]
+        public void GetFieldReturnExceptionForInvalidPosition() {
+            var map = new Map("....",2,2);
+            map.GetField(2,2);
+        }
     }
 }
