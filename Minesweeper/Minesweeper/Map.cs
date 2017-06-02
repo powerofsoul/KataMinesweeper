@@ -63,11 +63,23 @@ namespace Minesweeper {
             return new Map(string.Join("",mapLayout),width,height);
         }
 
-        public char GetField(int x, int y) {
-            if(x >= Width || y >= Height)
-                throw new ArgumentException("Invalid position");
-
+        public char GetField(int x, int y)
+        {
+            CheckInvalidPosition(x,y);
             return MapLayout[y * Width + x];
         }
+
+        public void SetField(char c, int x,int y)
+        {
+            CheckInvalidPosition(x,y);
+             
+        }
+
+        private void CheckInvalidPosition(int x,int y)
+        {
+            if(x >= Width || y >= Height)
+                throw new ArgumentException("Invalid position");
+        }
+
     }
 }
