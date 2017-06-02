@@ -122,6 +122,7 @@ namespace MinesweeperTests {
             var map = new Map("....",2,4);
         }
 
+        [TestCategory("Utils")]
         [TestMethod]
         public void ChangeCharInStringReturnGoodNewString()
         {
