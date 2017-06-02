@@ -72,7 +72,7 @@ namespace Minesweeper {
         public void SetField(char c, int x,int y)
         {
             CheckInvalidPosition(x,y);
-             
+            MapLayout = MapLayout.ReplaceCharAt(c,y * Width + x);
         }
 
         private void CheckInvalidPosition(int x,int y)
