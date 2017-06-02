@@ -117,9 +117,17 @@ namespace MinesweeperTests {
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException),"Invalid position")]
-        public void SetFieldSetTheCorrectPosition()
+        public void SetFieldThrowExceptionForInvalidPosition()
         {
             var map = new Map("....",2,4);
+        }
+
+        [TestMethod]
+        public void ChangeCharInStringReturnGoodNewString()
+        {
+            string s = "Ben has a cat";
+            s = s.ReplaceCharAt('a',0);
+            Assert.AreEqual('a',s[0]);
         }
     }
 }
