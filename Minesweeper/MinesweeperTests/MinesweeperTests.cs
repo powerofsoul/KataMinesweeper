@@ -122,6 +122,21 @@ namespace MinesweeperTests {
             var map = new Map("....",2,4);
         }
 
+        [TestMethod]
+        public void GetMinesForFieldReturnGoodAnswer()
+        {
+            var map = new Map(".*.*.*...",3,3);
+            Assert.AreEqual(2,map.GetMines(0,2));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException),"Invalid position")]
+        public void GetMinesForFieldReturnException()
+        {
+            var map = new Map(".*.*.*...",3,3);
+            map.GetMines(3,3);
+        }
+
         [TestCategory("Utils")]
         [TestMethod]
         public void ChangeCharInStringReturnGoodNewString()
