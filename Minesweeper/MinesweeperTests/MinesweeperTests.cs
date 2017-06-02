@@ -92,7 +92,7 @@ namespace MinesweeperTests {
         }
 
         [TestMethod]
-        public void GetFiledReturnCorrentAnswer() {
+        public void GetFiledReturnCorrectAnswer() {
             var map = new Map("..*...**.",3,3);
 
             Assert.AreEqual('.',map.GetField(1,1));
@@ -105,6 +105,21 @@ namespace MinesweeperTests {
         public void GetFieldReturnExceptionForInvalidPosition() {
             var map = new Map("....",2,2);
             map.GetField(3,2);
+        }
+        
+        [TestMethod]
+        public void SetFieldSetTheCorrectPosition()
+        {
+            var map = new Map("....",2,2);
+            map.SetField('*',0,0);
+            Assert.AreEqual('*',map.GetField(0,0));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException),"Invalid position")]
+        public void SetFieldSetTheCorrectPosition()
+        {
+            var map = new Map("....",2,4);
         }
     }
 }
