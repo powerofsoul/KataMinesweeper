@@ -108,5 +108,7 @@ namespace Minesweeper
         {
             throw new NotImplementedException();
         }
+
+        public bool IsMine(int x,int y) => x >= Width || y >= Height || GetField(x,y) == '.' ? false : true; 
     }
 }
