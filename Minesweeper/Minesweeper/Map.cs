@@ -87,7 +87,7 @@ namespace Minesweeper
 
         private void CheckInvalidPosition(int x,int y)
         {
-            if(x >= Width || y >= Height)
+            if(x >= Width || y >= Height || x<0 || y < 0)
                 throw new ArgumentException("Invalid position");
         }
 
@@ -104,11 +104,26 @@ namespace Minesweeper
             return matrix;
         }
 
-        public int GetMines(int v1,int v2)
+        public string GetMines(int x,int y)
         {
-            throw new NotImplementedException();
+            CheckInvalidPosition(x,y);
+            int count = 0;
+            if(IsMine(x,y))
+                return "*";
+
+            for(int i = x - 1;i <= x + 1;i++)
+            {
+                if(IsMine(i,y - 1))
+                    count++;
+                if(IsMine(i,y + 1))
+                    count++;
+                if(i != x && IsMine(i,y))
+                    count++;
+            }
+
+            return count.ToString();
         }
 
-        public bool IsMine(int x,int y) => x >= Width || y >= Height || GetField(x,y) == '.' ? false : true; 
+        public bool IsMine(int x,int y) => x >= Width || y >= Height || x < 0 || y < 0 || GetField(x,y) == '.' ? false : true; 
     }
 }
