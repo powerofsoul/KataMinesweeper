@@ -2,15 +2,18 @@
 using Minesweeper;
 using System;
 
-namespace MinesweeperTests {
+namespace MinesweeperTests
+{
 
     [TestClass]
-    public class UnitTest1 {
+    public class UnitTest1
+    {
 
         [TestCategory("MapCreation")]
         [TestMethod]
         [ExpectedException(typeof(ArgumentException),"Invalid size")]
-        public void SizeOfGridIsIncorrect() {
+        public void SizeOfGridIsIncorrect()
+        {
             string input = "***";
             Map m = new Map(input,5,5);
         }
@@ -18,81 +21,93 @@ namespace MinesweeperTests {
         [TestCategory("MapCreation")]
         [TestMethod]
         [ExpectedException(typeof(ArgumentException),"Invalid map")]
-        public void InvalidCharactersInInput() {
+        public void InvalidCharactersInInput()
+        {
             string input = "*.*.*#...";
             Map m = new Map(input,3,3);
         }
 
         [TestCategory("MapCreation")]
         [TestMethod]
-        public void MapIsValid() {
+        public void MapIsValid()
+        {
             string input = ".*..*.***";
             Map m = new Map(input,3,3);
         }
 
         [TestCategory("LoadFromFile")]
         [TestMethod]
-        public void MapFromFileIsValid() {
+        public void MapFromFileIsValid()
+        {
             var m = Map.LoadMapFromFile(@"Resources\map1.txt");
         }
 
         [TestCategory("LoadFromFile")]
         [TestMethod]
         [ExpectedException(typeof(ArgumentException),"Invalid size")]
-        public void MapFromFileHasInvalidSize() {
+        public void MapFromFileHasInvalidSize()
+        {
             var m = Map.LoadMapFromFile(@"Resources\map2.txt");
         }
 
         [TestCategory("LoadFromFile")]
         [TestMethod]
         [ExpectedException(typeof(ArgumentException),"Invalid map")]
-        public void MapFromFileHasInvalidCharacters() {
+        public void MapFromFileHasInvalidCharacters()
+        {
             var m = Map.LoadMapFromFile(@"Resources\map3.txt");
         }
 
         [TestCategory("LoadFromFile")]
         [TestMethod]
-        public void FilesHasTwoMaps() {
+        public void FilesHasTwoMaps()
+        {
             var maps = Map.LoadMapFromFile(@"Resources\map4.txt");
             Assert.AreEqual(maps.Count,2);
         }
 
         [TestCategory("LoadFromFile")]
         [TestMethod]
-        public void ZeroMapIsSkipedFromLoadMapFromFile() {
+        public void ZeroMapIsSkipedFromLoadMapFromFile()
+        {
             var maps = Map.LoadMapFromFile(@"Resources\map5.txt");
             Assert.AreEqual(1,maps.Count);
         }
 
         [TestCategory("MapCreation")]
         [TestMethod]
-        public void ParseMapReturnNoExceptions() {
+        public void ParseMapReturnNoExceptions()
+        {
             Map.ParseMap(new string[] { "2 2","..",".." });
         }
 
         [TestCategory("MapCreation")]
         [TestMethod]
-        public void MapHaveCorrectWidth() {
+        public void MapHaveCorrectWidth()
+        {
             var map = Map.ParseMap(new string[] { "3 2","...","..." });
             Assert.AreEqual(3,map.Width);
         }
 
         [TestCategory("MapCreation")]
         [TestMethod]
-        public void MapHaveCorrectHeight() {
+        public void MapHaveCorrectHeight()
+        {
             var map = Map.ParseMap(new string[] { "3 1","..." });
             Assert.AreEqual(1,map.Height);
         }
 
         [TestCategory("MapCreation")]
         [TestMethod]
-        public void MapHaveCorrectMapLayout() {
+        public void MapHaveCorrectMapLayout()
+        {
             var map = Map.ParseMap(new string[] { "2 2",".*","**" });
             Assert.AreEqual(".***",map.MapLayout);
         }
 
         [TestMethod]
-        public void GetFiledReturnCorrectAnswer() {
+        public void GetFiledReturnCorrectAnswer()
+        {
             var map = new Map("..*...**.",3,3);
 
             Assert.AreEqual('.',map.GetField(1,1));
@@ -101,12 +116,13 @@ namespace MinesweeperTests {
         }
 
         [TestMethod]
-        [ExpectedException (typeof(ArgumentException),"Invalid position")]
-        public void GetFieldReturnExceptionForInvalidPosition() {
+        [ExpectedException(typeof(ArgumentException),"Invalid position")]
+        public void GetFieldReturnExceptionForInvalidPosition()
+        {
             var map = new Map("....",2,2);
             map.GetField(3,2);
         }
-        
+
         [TestMethod]
         public void SetFieldSetTheCorrectPosition()
         {
@@ -144,10 +160,11 @@ namespace MinesweeperTests {
         public void MapLayoutToMatrix()
         {
             var map = new Map(".*.*.*...",3,3);
-            var mapMatix = new char[3,3] { {'.','*','.' },{'*','.','*'},{'.','.','.' } };
+            var mapMatix = new char[3,3] { { '.','*','.' },{ '*','.','*' },{ '.','.','.' } };
 
             CollectionAssert.AreEqual(mapMatix,map.GetMatrix());
         }
+
         [TestCategory("Utils")]
         [TestMethod]
         public void ChangeCharInStringReturnGoodNewString()
@@ -174,5 +191,6 @@ namespace MinesweeperTests {
 
             Assert.AreEqual(gameMap,map.GameLayout);
         }
+
     }
 }
