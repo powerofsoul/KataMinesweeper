@@ -165,5 +165,14 @@ namespace MinesweeperTests {
             Assert.AreEqual(true,map.IsMine(0,1));
             Assert.AreEqual(false,map.IsMine(0,2));
         }
+
+        [TestMethod]
+        public void GameLayoutReturnsGoodLayout()
+        {
+            var map = new Map(".*.*.....",3,3);
+            var gameMap = "2*1*21110";
+
+            Assert.AreEqual(gameMap,map.GameLayout);
+        }
     }
 }
