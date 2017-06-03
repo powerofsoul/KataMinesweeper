@@ -125,8 +125,11 @@ namespace MinesweeperTests {
         [TestMethod]
         public void GetMinesForFieldReturnGoodAnswer()
         {
-            var map = new Map(".*.*.*...",3,3);
-            Assert.AreEqual("2",map.GetMines(0,2));
+            var map = new Map(".*.*.....",3,3);
+            Assert.AreEqual("1",map.GetMines(0,2));
+            Assert.AreEqual("*",map.GetMines(0,1));
+            Assert.AreEqual("2",map.GetMines(0,0));
+            Assert.AreEqual("0",map.GetMines(2,2));
         }
 
         [TestMethod]
