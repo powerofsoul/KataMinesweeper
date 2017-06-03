@@ -103,5 +103,10 @@ namespace Minesweeper
 
             return matrix;
         }
+
+        public int GetMines(int v1,int v2)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
