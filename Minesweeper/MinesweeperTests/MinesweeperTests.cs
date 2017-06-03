@@ -137,6 +137,14 @@ namespace MinesweeperTests {
             map.GetMines(3,3);
         }
 
+        [TestMethod]
+        public void MapLayoutToMatrix()
+        {
+            var map = new Map(".*.*.*...",3,3);
+            var mapMatix = new char[3,3] { {'.','*','.' },{'*','.','*'},{'.','.','.' } };
+
+            CollectionAssert.AreEqual(mapMatix,map.GetMatrix());
+        }
         [TestCategory("Utils")]
         [TestMethod]
         public void ChangeCharInStringReturnGoodNewString()
