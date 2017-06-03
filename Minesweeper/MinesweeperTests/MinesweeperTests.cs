@@ -153,5 +153,14 @@ namespace MinesweeperTests {
             s = s.ReplaceCharAt('a',0);
             Assert.AreEqual('a',s[0]);
         }
+
+        [TestMethod]
+        public void IsMineAtPositionReturnCorrectAnswer()
+        {
+            var map = new Map(".*.*.*...",3,3);
+            Assert.AreEqual(false,map.IsMine(0,0));
+            Assert.AreEqual(true,map.IsMine(0,1));
+            Assert.AreEqual(false,map.IsMine(0,2));
+        }
     }
 }
