@@ -125,5 +125,16 @@ namespace Minesweeper
         }
 
         public bool IsMine(int x,int y) => x >= Width || y >= Height || x < 0 || y < 0 || GetField(x,y) == '.' ? false : true; 
+
+        public string GameLayout
+        {
+            get
+            { string s = "";
+                for(int i = 0;i < Width;i++)
+                    for(int j = 0;j < Height;j++)
+                        s += GetMines(i,j);
+                return s;
+            }
+        }
     }
 }
