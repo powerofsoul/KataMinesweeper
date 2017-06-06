@@ -136,5 +136,13 @@ namespace Minesweeper
                 return s;
             }
         }
+
+        public string FormatedOutput() {
+            string output = "";
+            for(int i = 0;i < Width * Height;i += Width)
+                output += GameLayout.Substring(i,Width) + Environment.NewLine;
+
+            return output;
+        }
     }
 }
